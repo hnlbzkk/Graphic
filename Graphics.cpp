@@ -8,7 +8,7 @@
 using namespace std;
 
 
-bool keyboard(int key, Camera& camera, ModelCoordinate& mc, int& model, int& flagt, int& flagl, int& flagc) {
+int keyboard(int key, Camera& camera, ModelCoordinate& mc, int& model, int& flagt, int& flagl, int& flagc) {
 	switch (key) {
 		//相机移动
 	case 'w':
@@ -67,7 +67,7 @@ bool keyboard(int key, Camera& camera, ModelCoordinate& mc, int& model, int& fla
 		break;
 	}
 	case 27:
-		return false;
+		return 5;
 	}
 
 }
@@ -76,7 +76,7 @@ int main()
 {
 	initgraph(GRAPHIC_LENGTH, GRAPHIC_WIDTH);
 	IMAGE img;
-	loadimage(&img, L"D:\\1.jpg");
+	loadimage(&img, L"./1.jpg");
 	HDC hdc = GetImageHDC(&img);
 	for (int j = 0; j < PICTURE_WIDTH; j++) {
 		for (int i = 0; i < PICTURE_LENGTH; i++) {
@@ -108,7 +108,7 @@ int main()
 
 	double Ka = 0.6;//环境光反射系数
 	double Ia = 0.5;//环境光亮度
-	double Ip = 0.6;//点光源亮度
+	double Ip = 0.4;//点光源亮度
 	Point PLight = { 0,0,5 };//光源位置
 	double Kd = 0.7;//漫反射系数
 	double Ks = 0.5;//镜面反射系数
@@ -127,8 +127,8 @@ int main()
 	while (true) {
 		drawWindow();
 		input:int input = _getch();
-		bool flag = keyboard(input, camera, mc, model, flagt, flagl, flagc);
-		if (!flag) return false;
+		int flag = keyboard(input, camera, mc, model, flagt, flagl, flagc);
+		if (flag == 5) return false;
 
 		worldMatrix = worldTransform(mc);
 		viewMatrix = viewTransform(camera);
