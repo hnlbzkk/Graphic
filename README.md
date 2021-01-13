@@ -1,7 +1,7 @@
 # Cpp
 图形学自学任务
 
-百度：图形学自学任务：https://wenku.baidu.com/view/ec42d707bceb19e8b9f6ba13.html
+百度：图形学自学任务： https://wenku.baidu.com/view/ec42d707bceb19e8b9f6ba13.html
 
 本人C/C++不熟悉，一直使用Java，所以在这个程序中，将.h文件理解为Java的接口类，纯定义方法名，具体实现就是对应的.cpp文件
 
